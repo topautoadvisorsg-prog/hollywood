@@ -2,8 +2,10 @@
 
 **Purpose:** Turn the competitor research into three complete, visibly different website concepts for customer review.  
 **Property:** 7845 Torrison Drive  
-**Audiences:** Stay · Shoot · Gather  
+**Audiences:** Shoot · Gather · Stay
 **Status:** Planning document; implementation follows approval of this comparison structure.
+
+**Client transcript authority:** The discovery transcript supplied 28 July 2026 supersedes earlier inferred business priorities and palette assumptions. See `WHITE_OAK_CLIENT_VISION_BRIEF.md`.
 
 ---
 
@@ -54,29 +56,30 @@ The goal is not to force one all-or-nothing selection. The review system should 
 
 ---
 
-## Concept 2 — Cinematic Escape
+## Concept 2 — Luminous Cinema
 
-**Client-facing name:** Above the City  
+**Client-facing name:** City Away
 **Core idea:** One day and one night at the estate, told as a film.  
 **Primary references:** Rosewood media sequencing, River Run event emotion, Maimon’s longer reveals, Aman’s sparse copy.  
 **Best for:** Atmosphere, hospitality, private events, music/entertainment clients, and memorable presentation.
 
 ### Defining features
 
-- Full-bleed scenes
+- Full-bleed scenes inside an overall bright interface
 - Photography provides most of the color
-- Near-black and cloud-white transition sections
+- Porcelain-white and warm neutral transition sections
 - Time-of-day chapter markers
 - Optional muted video architecture with real-image poster fallback
 - Controlled image crossfades
 - Minimal copy over imagery
 - Manual carousels and visible media controls
-- Large scene changes followed by quiet information sections
+- Large scene changes followed by bright, quiet information sections
+- Dusk and night are individual chapters, never the dominant interface
 
 ### What it demonstrates to the customer
 
 - Cinematic full-screen photography
-- Dark/light pacing
+- Daylight-to-evening pacing without a dark theme
 - Emotional storytelling
 - Time-based narrative
 - Video-ready hero architecture
@@ -141,7 +144,7 @@ The comparison system is presentation software wrapped around three real sites. 
 The top review bar contains:
 
 - Concept 1 — Editorial Residence
-- Concept 2 — Cinematic Escape
+- Concept 2 — Luminous Cinema
 - Concept 3 — Location Dossier
 - Current page name
 - “Compare this page” action
@@ -193,13 +196,13 @@ Every concept includes:
 
 1. Home
 2. The Estate
-3. Stay
-4. Shoot
-5. Gather
+3. Shoot
+4. Gather
+5. Stay
 6. Gallery
 7. Contact
 
-“Host an Event” is split into **Shoot** and **Gather** during concept review because the research shows that production and social-event customers need different facts, proof, and inquiry questions. If the client prefers one combined final page, the content can be recombined after review.
+“Host an Event” is split into **Shoot** and **Gather** during concept review because the research and customer transcript show that production and respectful social/corporate events need different facts, proof, and inquiry questions. Shoot is the primary growth path, Gather is second, and Stay supports ongoing occupancy. If the client prefers one combined final page, the content can be recombined after review.
 
 Each page contains 8–10 substantive sections. Global navigation and footer do not count as sections.
 
@@ -210,12 +213,12 @@ Each page contains 8–10 substantive sections. Global navigation and footer do 
 | # | Shared purpose | Concept 1 — Editorial | Concept 2 — Cinematic | Concept 3 — Dossier |
 |---|---|---|---|---|
 | 1 | Establish property | Supplied split-screen Layout 1 hero | Full-viewport sunset/blue-hour scene | Hero image + facts panel |
-| 2 | Route audience | Typographic Stay/Shoot/Gather index | Three cinematic chapter doors | Large activity selector |
+| 2 | Route audience | Typographic Shoot/Gather/Stay index | Three cinematic chapter doors | Large activity selector |
 | 3 | Establish setting | Panoramic photograph with one statement | Sunrise/sunset transition scene | Location and drive-time diagram |
 | 4 | Preview estate | Asymmetric three-image collage | Arrival-to-interior film sequence | Annotated contact sheet |
 | 5 | Signature oak | Full-width image and italic statement | Oak chapter with ambient motion | Landscape/grounds specification |
 | 6 | Explain experience | “A day at White Oak” editorial plates | Morning-to-night pinned chapter | Use-case benefits grid |
-| 7 | Present three uses | Weighted editorial panels | Stay/Shoot/Gather full-screen scenes | Three detailed use modules |
+| 7 | Present three uses | Shoot-led weighted editorial panels | Shoot/Gather/Stay full-screen scenes | Three detailed use modules |
 | 8 | Provide proof | Press-style editorial proof | Testimonial/event title card | Layered facts, reviews, and process |
 | 9 | Preview gallery | Curated masonry collage | Manual full-width image sequence | Filterable thumbnail contact sheet |
 | 10 | Convert | Dusk invitation | Night closing scene | Three explicit actions |
@@ -537,4 +540,3 @@ This recipe becomes the final production specification.
 10. Mobile designs are recomposed rather than simply stacked.
 11. Keyboard, focus, media controls, and reduced motion are included.
 12. The presentation produces a clear final design recipe.
-

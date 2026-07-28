@@ -5,20 +5,23 @@
 **Version:** 3.0 — full multi-page specification
 **Build status:** No visual direction is approved by this document. The next implementation must follow the selected direction and the page contracts below.
 
+**Customer transcript update — 28 July 2026:** The owner's direct statements supersede earlier inferred priorities. The binding interpretation is documented in `WHITE_OAK_CLIENT_VISION_BRIEF.md`.
+
 ---
 
 ## 1. What We Are Building
 
-White Oak is not a landing page and it is not a generic vacation-rental template. It is a six-page luxury property website with three complete visual directions for client comparison.
+The Torrison Drive property is not a landing page and it is not a generic vacation-rental template. It is a seven-page luxury property website with three complete visual directions for client comparison. “White Oak” remains a provisional agency naming concept until customer approval.
 
 Every direction must contain these real pages:
 
 1. Home
 2. The Estate
-3. Stay
-4. Host an Event
-5. Gallery
-6. Contact
+3. Shoot
+4. Gather
+5. Stay
+6. Gallery
+7. Contact
 
 Every page must contain **between seven and ten deliberate content sections**, excluding the global navigation and footer. A section only counts when it advances the story, answers a user question, proves a claim, or moves the visitor toward an action. Decorative spacers, empty quotations, repeated photographs, and generic statistic rows do not count.
 
@@ -39,10 +42,12 @@ The three directions must not be palette swaps. Each must change:
 
 | Audience | Primary need | Primary action |
 |---|---|---|
-| Luxury traveler | Understand the experience, amenities, privacy, and availability | View availability / book a stay |
 | Producer or location scout | Assess visual range, logistics, access, and production suitability | Request a location packet |
 | Event host or planner | Understand fit, capacity, atmosphere, and restrictions | Request an event proposal |
+| Luxury traveler | Understand the experience, amenities, privacy, and availability | View availability / book a stay |
 | Broker, press, or collaborator | Obtain a concise property story and approved imagery | Make an inquiry |
+
+Commercial priority is **Shoot → Gather → Stay**. Airbnb occupancy is consistent and supports the property; the website's growth job is to create higher-value production and respectful event opportunities.
 
 ### Core UX principle
 
@@ -76,17 +81,19 @@ No page should open with a form, bury essential facts, or force a user through a
 - CTAs read like private invitations rather than booking widgets
 - Best suited to luxury stays, design-conscious guests, and brand prestige
 
-### Direction B — Cinematic Escape
+### Direction B — Luminous Cinema
 
 **Story:** One day and one night above Los Angeles, told as an immersive film.
 
-- Image-led, dark-to-light pacing, full-bleed transitions
+- Image-led daylight-to-evening pacing, full-bleed transitions
 - Oversized scene titles and time-of-day chapter markers
-- Near-black, cloud white, concrete gray; color comes from the photography
+- Warm white, cloud, concrete gray; color comes from the photography
 - Navigation begins transparent and becomes solid after the first scene
 - Motion is atmospheric: controlled crossfades, video loops, ambient sound optional and off by default
 - CTAs appear after emotionally complete sequences
 - Best suited to emotional impact, hospitality, launches, and entertainment clients
+
+**Binding customer correction:** no dark theme. Rename this direction **Luminous Cinema** in customer-facing review. Dusk and night imagery may create contrast, but the interface remains bright.
 
 ### Direction C — Production House
 
@@ -208,7 +215,7 @@ No fake awards, fake press marks, fake testimonials, or nonfunctional social ico
 - Day sequence reads like four magazine spreads.
 - Closing invitation is mostly typography with one narrow cinematic image.
 
-**B — Cinematic Escape**
+**B — Luminous Cinema**
 
 - Hero is a full-viewport establishing shot with minimal text.
 - Audience gateway appears after the first emotional scene.
@@ -248,7 +255,7 @@ No fake awards, fake press marks, fake testimonials, or nonfunctional social ico
 
 **A — Editorial Residence:** Sticky room photography with scrolling essays; floor plan treated like a foldout; asymmetry and captions create a collected-home feeling.
 
-**B — Cinematic Escape:** The visit unfolds as arrival → interior → private rooms → water → grounds → night, using scene transitions and minimal interface.
+**B — Luminous Cinema:** The visit unfolds as arrival → interior → private rooms → water → grounds → night, using scene transitions and minimal interface.
 
 **C — Production House:** Persistent room index, annotated images, spec drawers, orientation diagrams, and a print/download-ready location-dossier structure.
 
@@ -274,7 +281,7 @@ No fake awards, fake press marks, fake testimonials, or nonfunctional social ico
 
 **A — Editorial Residence:** Reads like a travel-journal feature; rooms are individual editorial portraits; booking appears as a restrained reservation ribbon.
 
-**B — Cinematic Escape:** Follows one guest day from waking to night swimming; amenities enter at natural moments; booking closes the film.
+**B — Luminous Cinema:** Follows one guest day from waking to night swimming; amenities enter at natural moments; booking closes the film.
 
 **C — Production House:** Leads with occupancy and availability; rooms use a comparison matrix; amenities, policies, and neighborhood logistics are faster to scan.
 
@@ -301,7 +308,7 @@ No fake awards, fake press marks, fake testimonials, or nonfunctional social ico
 
 **A — Editorial Residence:** Event types appear as art-directed stories; logistics arrive in elegant foldout panels; form feels like a private commission request.
 
-**B — Cinematic Escape:** Opens with a finished-event scene, rewinds through transformation and setup, then reveals spaces, logistics, process, and inquiry.
+**B — Luminous Cinema:** Opens with a finished-event scene, rewinds through transformation and setup, then reveals spaces, logistics, process, and inquiry.
 
 **C — Production House:** Audience selector and spec summary appear immediately; annotated plans, capacity tables, location packet, and structured lead form dominate.
 
@@ -326,7 +333,7 @@ No fake awards, fake press marks, fake testimonials, or nonfunctional social ico
 
 **A — Editorial Residence:** Curated magazine plates first, masonry archive second, captions always visible, lightbox resembles a print-viewer.
 
-**B — Cinematic Escape:** Full-screen chapters with deliberate pacing, followed by a conventional filterable archive for visitors who want speed.
+**B — Luminous Cinema:** Full-screen chapters with deliberate pacing, followed by a conventional filterable archive for visitors who want speed.
 
 **C — Production House:** Contact-sheet opening, fast filters, metadata, orientation tags, shortlist function, and a clear location-packet request.
 
@@ -351,7 +358,7 @@ No fake awards, fake press marks, fake testimonials, or nonfunctional social ico
 
 **A — Editorial Residence:** Large typographic invitation, route choices as a refined index, form revealed only after intent selection.
 
-**B — Cinematic Escape:** Quiet full-screen opening image transitions into a focused dark/light form sequence with minimal surrounding content.
+**B — Luminous Cinema:** Quiet full-screen opening image transitions into a focused daylight/dusk form sequence with minimal surrounding content.
 
 **C — Production House:** Route selector, response details, and structured form visible immediately; FAQs and process sit beside it on wide screens.
 

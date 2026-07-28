@@ -860,3 +860,16 @@ If the answer to any question is no, the pattern should be removed or modified r
 ## 17. Application Plan
 
 The research is translated into a three-concept customer-review strategy in `WHITE_OAK_CONCEPT_APPLICATION_PLAN.md`. That plan assigns competitor patterns, property imagery, page sections, signature interactions, and presentation questions across Editorial Residence, Cinematic Escape, and Location Dossier directions.
+
+### Customer-transcript correction
+
+The owner discovery transcript supplied 28 July 2026 changes the weighting of the research recommendations:
+
+- Commercial priority becomes **Shoot → Gather → Stay**.
+- The owner explicitly rejected a dark theme.
+- The central emotional territory is “city away from the city.”
+- The arrival impression, elevation, nearly 180-degree view, and relationship to the studios are more important than a conventional house-first story.
+- Events should be respectful, planned, and oriented toward corporate/private occasions rather than parties.
+- The property name is not approved; “White Oak” is an agency concept.
+
+The revised application direction is documented in `WHITE_OAK_CLIENT_VISION_BRIEF.md`. Concept 2 is now **Luminous Cinema**, retaining cinematic pacing without a dark interface.
