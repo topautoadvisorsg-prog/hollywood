@@ -1,31 +1,88 @@
 "use client";
 import { useState } from "react";
 
-const concepts = [
-  { id: "editorial", label: "01 Editorial", note: "Story-led · cinematic · residential" },
-  { id: "cinematic", label: "02 Cinematic", note: "Image-led · immersive · emotional" },
-  { id: "venue", label: "03 Venue", note: "Conversion-led · precise · event-ready" },
-] as const;
-type Concept = (typeof concepts)[number]["id"];
-const content = {
-  editorial:{eyebrow:"A PRIVATE ESTATE IN THE HOLLYWOOD HILLS",title:<>A house with<br/>a point of view.</>,intro:"Above the city, White Oak moves at its own pace—a private hillside home shaped for long lunches, late swims, and beautifully produced moments.",cta:"Discover the estate",secondary:"Plan your stay",hero:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=88",stat:"5 bedrooms · 7 baths · panoramic canyon views"},
-  cinematic:{eyebrow:"WHITE OAK · HOLLYWOOD, CALIFORNIA",title:<>The city fades.<br/>The story begins.</>,intro:"A cinematic refuge above Los Angeles—made for golden-hour arrivals, nights beneath the oak, and mornings that can take their time.",cta:"Enter White Oak",secondary:"Watch the story",hero:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=88",stat:"34.1016° N · 118.3269° W"},
-  venue:{eyebrow:"STAY · CREATE · GATHER",title:<>Your next scene<br/>is already set.</>,intro:"A production-ready Hollywood Hills estate with cinematic views, flexible gathering spaces, and the privacy to make ambitious ideas happen.",cta:"Start an inquiry",secondary:"View spaces & capacity",hero:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=88",stat:"Film & photo · private events · luxury stays"}
+type Mode="residence"|"escape"|"production";
+const modes:{id:Mode;num:string;name:string;sub:string}[]=[
+  {id:"residence",num:"01",name:"The Residence",sub:"Editorial · considered"},
+  {id:"escape",num:"02",name:"The Escape",sub:"Cinematic · immersive"},
+  {id:"production",num:"03",name:"The Location",sub:"Production · precise"},
+];
+const hero={
+  residence:{kicker:"A PRIVATE HILLSIDE ESTATE · STUDIO CITY",title:<>The view is<br/><i>only the beginning.</i></>,copy:"A private resort above the valley, shaped by glass, light, and the easy rhythm of California living.",cta:"Explore the estate"},
+  escape:{kicker:"ARRIVE ABOVE IT ALL",title:<>One house.<br/><i>A world away.</i></>,copy:"Sun on the water. Dinner under the trees. The city glittering below. This is how Los Angeles is meant to feel.",cta:"Begin the story"},
+  production:{kicker:"STAY · SHOOT · HOST",title:<>Built for<br/><i>the big picture.</i></>,copy:"A camera-ready hillside estate with panoramic sightlines, versatile zones, generous access, and complete privacy.",cta:"Scout the property"},
 };
-const links=["Home","The Estate","Stay","Host an Event","Gallery","Contact"];
-const slug=(s:string)=>s.toLowerCase().replaceAll(" ","-");
+const pics=Array.from({length:82},(_,i)=>`/property/photo-${String(i+1).padStart(2,"0")}.${i===4||i===46?"webp":"avif"}`);
+
 export default function Home(){
-  const [concept,setConcept]=useState<Concept>("editorial"); const [menu,setMenu]=useState(false); const c=content[concept];
-  return <main className={`site concept-${concept}`}>
-    <div className="concept-bar" aria-label="Choose a layout direction"><div className="concept-intro"><span>CLIENT PREVIEW</span><b>Choose a direction</b></div><div className="concept-options">{concepts.map(x=><button key={x.id} className={concept===x.id?"active":""} onClick={()=>setConcept(x.id)}><span>{x.label}</span><small>{x.note}</small></button>)}</div></div>
-    <header><a className="wordmark" href="#home">WHITE OAK <small>HOLLYWOOD HILLS</small></a><nav>{links.slice(0,5).map(x=><a key={x} href={`#${slug(x)}`}>{x}</a>)}</nav><a className="inquire" href="#contact">Inquire <span>↗</span></a><button className="menu" onClick={()=>setMenu(!menu)} aria-label="Toggle menu">Menu</button></header>
-    {menu&&<div className="mobile-nav">{links.map(x=><a onClick={()=>setMenu(false)} key={x} href={`#${slug(x)}`}>{x}</a>)}</div>}
-    <section id="home" className="hero"><div className="hero-copy"><p className="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p className="intro">{c.intro}</p><div className="actions"><a className="primary" href="#the-estate">{c.cta} <span>↗</span></a><a href="#gallery">{c.secondary} <span>→</span></a></div></div><div className="hero-image" style={{backgroundImage:`linear-gradient(180deg, transparent 65%, rgba(20,22,17,.38)), url("${c.hero}")`}}><span className="image-index">01 / 06</span><p>{c.stat}</p></div><div className="scroll-cue">SCROLL TO EXPLORE <i/></div></section>
-    <section className="promise"><p>Not simply a place to stay.</p><h2>A private world,<br/><em>above everything.</em></h2><div className="facts"><span><b>12</b> overnight guests</span><span><b>180°</b> canyon views</span><span><b>15 min</b> from the studios</span></div></section>
-    <section id="the-estate" className="estate"><div className="section-label"><span>01</span> THE ESTATE</div><div className="estate-grid"><div className="tall photo" style={{backgroundImage:"url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85')"}}/><div className="estate-copy"><h2>Designed for the<br/><em>way life unfolds.</em></h2><p>Five quiet bedrooms, sunlit gathering rooms, and a seamless path from kitchen to terrace to pool. Every space feels composed, never precious.</p><a href="#gallery">Explore every room <span>→</span></a></div><div className="wide photo" style={{backgroundImage:"url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85')"}}/></div></section>
-    <section id="stay" className="duo"><article><span>02 · STAY</span><h3>Wake up<br/>somewhere else.</h3><p>Trade the hotel corridor for a home with a horizon. Settle in for a weekend or stay long enough to know the light.</p><a href="#contact">Plan your stay →</a></article><article id="host-an-event"><span>03 · HOST</span><h3>Give the moment<br/>room to happen.</h3><p>Private dinners, intimate celebrations, and productions find their natural stage across the estate.</p><a href="#contact">Host at White Oak →</a></article></section>
-    <section id="gallery" className="gallery"><div className="section-label"><span>04</span> AROUND WHITE OAK</div><h2>Every angle<br/><em>tells the story.</em></h2><div className="gallery-grid">{["photo-1613490493576-7fde63acd811","photo-1600047509807-ba8f99d2cdde","photo-1600566753051-f0b89df2dd90","photo-1600585152915-d208bec867a1","photo-1600566752355-35792bedcfea"].map((id,i)=><div key={id} className={`g${i+1}`} style={{backgroundImage:`url('https://images.unsplash.com/${id}?auto=format&fit=crop&w=1000&q=82')`}}/>)}</div><a className="view-all" href="#contact">View the full gallery <span>→</span></a></section>
-    <section id="contact" className="closing"><p>YOUR TIME AT WHITE OAK</p><h2>Come up<br/><em>for the view.</em></h2><p className="close-copy">Tell us what you’re planning. We’ll help shape the details and make your arrival effortless.</p><a href="mailto:hello@whiteoakhollywood.com">Begin your inquiry ↗</a></section>
-    <footer><div className="wordmark">WHITE OAK <small>7845 TORRISON DRIVE</small></div><p>Hollywood Hills, California</p><a href="#home">Back to top ↑</a></footer>
+  const [mode,setMode]=useState<Mode>("residence");
+  const [menu,setMenu]=useState(false);
+  const h=hero[mode];
+  return <main className={`site mode-${mode}`}>
+    <header className="nav">
+      <a href="#top" className="brand"><b>WHITE OAK</b><span>7845 TORRISON DRIVE</span></a>
+      <nav><a href="#estate">Estate</a><a href="#stay">Stay</a><a href="#host">Host</a><a href="#gallery">Gallery</a></nav>
+      <a className="nav-cta" href="#inquire">Inquire <b>↗</b></a>
+      <button className="menu-btn" onClick={()=>setMenu(!menu)} aria-label="Open menu">{menu?"Close":"Menu"}</button>
+    </header>
+    {menu&&<div className="mobile-menu">{["Estate","Stay","Host","Gallery","Inquire"].map(x=><a key={x} onClick={()=>setMenu(false)} href={`#${x.toLowerCase()}`}>{x}</a>)}</div>}
+
+    <section id="top" className="hero">
+      <img src={pics[0]} alt="Aerial view of the Torrison Drive estate and pool at dusk"/>
+      <div className="hero-shade"/>
+      <div className="hero-copy"><p>{h.kicker}</p><h1>{h.title}</h1><span>{h.copy}</span><a href="#estate">{h.cta} <b>↘</b></a></div>
+      <div className="hero-index"><span>34.1288° N</span><span>118.3705° W</span></div>
+      <div className="scroll">SCROLL <i/></div>
+    </section>
+
+    <section className="direction">
+      <div className="direction-title"><span>CLIENT VIEW</span><h2>See the story<br/>three ways.</h2></div>
+      <div className="modes">{modes.map(m=><button key={m.id} onClick={()=>setMode(m.id)} className={mode===m.id?"active":""}><span>{m.num}</span><div><b>{m.name}</b><small>{m.sub}</small></div><i>↗</i></button>)}</div>
+    </section>
+
+    <section className="manifesto">
+      <p className="label">THE PREMISE</p>
+      <h2>Not a rental.<br/><i>Your own Los Angeles.</i></h2>
+      <p>High above Studio City, White Oak unfolds as a private resort—one that opens completely to the sky, the water, and a horizon that changes by the hour.</p>
+      <div className="fact-line"><span><b>12</b> guests</span><span><b>5</b> bedrooms</span><span><b>5.5</b> baths</span><span><b>6</b> cars</span></div>
+    </section>
+
+    <section id="estate" className="estate">
+      <div className="section-head"><p><span>01</span> THE ESTATE</p><p>INDOOR / OUTDOOR<br/>WITHOUT THE DIVIDE</p></div>
+      <div className="estate-images">
+        <figure className="estate-main"><img src={pics[2]} alt="Pool terrace facing the glass-fronted main residence"/><figcaption>THE TERRACE · LOOKING IN</figcaption></figure>
+        <figure className="estate-float"><img src={pics[5]} alt="Panoramic valley view from the estate"/><figcaption>THE VALLEY · LOOKING OUT</figcaption></figure>
+        <div className="estate-text"><h2>Every room<br/>finds the view.</h2><p>A retractable wall of glass dissolves the line between living room, chef’s kitchen, pool deck, and the valley beyond. The house doesn’t frame the landscape. It joins it.</p><a href="#gallery">See the complete estate →</a></div>
+      </div>
+    </section>
+
+    <section className="panorama"><img src={pics[1]} alt="The San Fernando Valley seen from the pool deck"/><div><p>THE VIEW</p><h2>From Universal<br/>to the horizon.</h2></div></section>
+
+    <section className="oak">
+      <div className="oak-copy"><p className="label">THE OTHER SIDE OF WHITE OAK</p><h2>Shade.<br/>Stillness.<br/><i>A place to stay awhile.</i></h2><p>Beyond the energy of the pool, mature trees shelter a private garden and oak swing—a quieter counterpoint made for reading, yoga, long conversations, or nothing at all.</p></div>
+      <div className="oak-gallery"><img src={pics[56]} alt="Tree-shaded garden at White Oak"/><img src={pics[57]} alt="Outdoor seating beneath mature trees"/></div>
+    </section>
+
+    <section className="chapters">
+      <article id="stay"><img src={pics[18]} alt="Calm bedroom suite at White Oak"/><div><p>02 · STAY</p><h2>Check in.<br/><i>Exhale.</i></h2><span>Five bedrooms, two private buildings, and enough room for everyone to disappear for a while.</span><a href="https://www.airbnb.com/rooms/1583425609042811538">View the Airbnb ↗</a></div></article>
+      <article id="host"><img src={pics[9]} alt="Expansive pool deck prepared for gathering"/><div><p>03 · HOST</p><h2>Bring the<br/><i>occasion up.</i></h2><span>Poolside dinners, brand moments, productions, retreats, and celebrations with the valley as backdrop.</span><a href="#inquire">Plan an event ↗</a></div></article>
+    </section>
+
+    <section className="proof">
+      <p>“The pictures don’t do the view justice.<br/>It feels like the whole city is yours.”</p>
+      <div><span>AIRBNB LUXE</span><span>5.0 RATING</span><span>25 REVIEWS</span></div>
+    </section>
+
+    <section id="gallery" className="gallery">
+      <div className="gallery-head"><p><span>04</span> THE GALLERY</p><h2>Inside.<br/>Outside.<br/><i>All of it.</i></h2><button>82 photographs <b>↘</b></button></div>
+      <div className="masonry">{[0,2,5,7,9,12,18,24,30,36,44,50,56,62,68].map((x,i)=><figure key={x} className={`shot s${i%6}`}><img src={pics[x]} alt={`White Oak property view ${i+1}`} loading="lazy"/><figcaption>{String(i+1).padStart(2,"0")} / WHITE OAK</figcaption></figure>)}</div>
+    </section>
+
+    <section id="inquire" className="inquire">
+      <img src={pics[3]} alt="White Oak glowing above the pool at dusk"/>
+      <div className="inquire-shade"/>
+      <div><p>YOUR TIME AT WHITE OAK</p><h2>Come up<br/><i>for the view.</i></h2><span>Stay for a weekend. Gather your people. Make something unforgettable.</span><a href="mailto:hello@whiteoakhollywood.com">Begin an inquiry <b>↗</b></a></div>
+    </section>
+    <footer><div className="brand"><b>WHITE OAK</b><span>7845 TORRISON DRIVE</span></div><p>STUDIO CITY · CALIFORNIA</p><div><a href="#top">TOP ↑</a></div></footer>
   </main>
 }
