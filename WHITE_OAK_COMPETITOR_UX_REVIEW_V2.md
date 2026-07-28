@@ -58,6 +58,12 @@ White Oak should therefore use a shared brand shell with three distinct user rou
 9. Avoid fake press, invented testimonials, decorative statistics, autoplay sound, and scroll-jacking.
 10. Ship a static, accessible, fast experience first; layer video and motion as enhancement.
 
+### Client priority correction
+
+The Maimon Group's **Real Estate Agents** page is a confirmed top-three client reference. It must be treated as a primary composition and information-architecture reference, not as a minor example or merely a generic villa-marketplace page.
+
+This distinction matters: the page the client selected is not the Maimon homepage. The selected page is a long-form, audience-specific partnership page that combines a strong hero, repeated image/content programs, benefit lists, a modular service system, case study, location imagery, searchable FAQ, and repeated high-confidence calls to action. Its relevance is therefore its **depth, section construction, visual alternation, and persuasive sequencing**.
+
 ---
 
 ## 2. Method and Evidence Discipline
@@ -181,9 +187,18 @@ White Oak should therefore use a shared brand shell with three distinct user rou
 
 ## 3.4 The Maimon Group
 
+**Client ranking:** Confirmed top-three reference, specifically
+`https://www.themaimongroup.com/real-estate-agents`
+
 ### What is working
 
-- The live structure mixes villa discovery with concierge and property-management content. **Directly Observed**
+- The selected page addresses one audience immediately—luxury real-estate agents—with a direct headline, partnership proposition, and “Apply to Partner” action. **Directly Observed**
+- Its core narrative is built as three substantial programs: short-term rental management, long-term rental management, and investment opportunities. Each combines large property imagery, a specific commercial proposition, benefit bullets, and a direct contact action. **Directly Observed**
+- A dedicated Partnership Benefits section makes the offer scannable through concrete benefits such as commission payments, networking, onboarding, projections, account management, sales integration, and property access. **Directly Observed**
+- Property Management Services converts an abstract management claim into named service modules. **Directly Observed**
+- The case-study section reconnects operational claims to real properties and specific estate descriptions. **Directly Observed**
+- A final partnership section, destination imagery, searchable FAQ, and repeated “Join Us” action create a complete persuasion-to-conversion sequence. **Directly Observed**
+- The page contains a skip-to-main-content link. **Directly Observed**
 - Extracted section roles include hero regions, pricing/table structures, a feature grid, testimonial, and footer. **Code Confirmed**
 - Three forms and one modal were detected in the captured form-state inventory. **Code Confirmed**
 - Google Analytics and PostHog signals were detected. **Code Confirmed**
@@ -192,19 +207,46 @@ White Oak should therefore use a shared brand shell with three distinct user rou
 
 ### Risks and limitations
 
-- Its inventory/search business model is broader than White Oak.
+- Its business subject is agent partnership rather than property rental, but its page-building method is directly relevant.
 - Playfair Display and predictable navy/gold treatment can read as category default.
-- Multiple business lines compete for hierarchy.
+- Some service descriptions and FAQ content appear broader than the page's agent audience, which weakens topical focus.
+- Repeated service-card content in the retrieved DOM suggests a carousel or duplicated responsive markup; White Oak must prevent duplicate screen-reader reading and DOM bloat. **Inferred from Directly Observed DOM repetition; requires browser verification**
+- The page is long, so White Oak should borrow its section completeness and alternating rhythm without reproducing every block indiscriminately.
+
+### Why this page belongs in White Oak's top reference set
+
+The page demonstrates exactly the level of completeness expected from White Oak:
+
+1. One clearly named audience.
+2. A specific promise and primary action.
+3. Multiple full-width, image-led program sections.
+4. Benefits translated into scannable modules.
+5. Operational services shown after the emotional/value proposition.
+6. A case study before the final conversion.
+7. FAQ content that addresses real objections.
+8. Repeated calls to action placed after confidence-building moments.
+
+For White Oak, the equivalent structure is:
+
+- **Stay:** experience → rooms → amenities → service → policies → proof → availability.
+- **Shoot:** use cases → spaces → technical benefits → services → case study → FAQ → scout request.
+- **Gather:** occasion types → configurations → planning benefits → services → event story → FAQ → proposal request.
 
 ### White Oak application
 
 | Pattern | Decision | Reason |
 |---|---|---|
+| Audience-specific long-form page | **YES** | This is the correct model for distinct Stay/Shoot/Gather pages |
+| Image + proposition + benefit-list modules | **YES** | Balances luxury presentation with practical value |
+| Partnership-benefit modular grid | **YES** | Adapt as production/event advantages and guest-service benefits |
+| Case study before final CTA | **YES** | Proof should precede conversion |
+| Searchable FAQ | **MODIFIED** | Use categories or search only when the question set is large enough |
+| CTA repeated after confidence milestones | **YES** | Each repeat follows new evidence rather than arbitrary spacing |
 | Concierge adjacent to property discovery | **YES** | Service belongs near the decision point |
 | Modal inquiry | **MODIFIED** | Only for a focused secondary task; dedicated pages remain primary |
 | 150–500 ms interface timing | **YES** | Practical motion range |
 | 880 ms reveal timing | **MODIFIED** | Use sparingly for major image reveals |
-| Generic navy/gold luxury styling | **NO** | White Oak needs a property-specific identity |
+| Exact navy/gold styling | **MODIFIED** | Preserve the polish and contrast, but adapt to White Oak's approved visual identity |
 
 ---
 
@@ -724,6 +766,8 @@ Haute Retreats demonstrates that luxury service becomes believable when the proc
 | Rosewood original extraction was consent-state distorted | Code Confirmed | Rosewood intent/section extraction | High |
 | River Run separates Weddings, Events, Lodging, Gallery | Directly Observed | Current River Run navigation | High |
 | River Run is Squarespace | Code Confirmed | Stack intelligence | High |
+| Maimon Real Estate Agents is a client top-three reference | Direct client instruction | Client correction, 28 July 2026 | High |
+| Maimon agent page uses three program narratives, benefit modules, services, case study, FAQ, and repeated CTAs | Directly Observed | Current Real Estate Agents page | High |
 | Maimon has captured modal and three forms | Code Confirmed | Form-state extraction | Medium |
 | Maimon uses PostHog and Google Analytics signals | Code Confirmed | Stack intelligence | Medium |
 | LucidWild separates Visit and Events | Directly Observed | Current LucidWild navigation | High |
@@ -810,4 +854,3 @@ Every proposed White Oak interaction must pass four questions:
 4. Is its operational promise supported by real content and client capability?
 
 If the answer to any question is no, the pattern should be removed or modified regardless of how frequently it appears on luxury competitor sites.
-
