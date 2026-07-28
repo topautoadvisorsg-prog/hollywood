@@ -1,176 +1,498 @@
-# SPEC — 7845 Torrison Drive, Hollywood Hills
+# WHITE OAK — WEBSITE EXPERIENCE SPECIFICATION
 
-**Status:** Draft for client approval. Nothing gets built against this until it's signed off.
-**Supersedes:** `homepage-options-spec.md` and `site-pages-options-spec.md` (both kept as reference — this doc absorbs both and makes the calls).
-**Author:** Claudio (Smart Click Agency)
-
----
-
-## 0. What this document is
-
-The two option sheets you had were built to hand a client a menu. This is the opposite of a menu — it's the build spec. For every section I've made the call, said why, and only left open the handful of things that are genuinely a client decision (a name, and which raw assets we're working with). If you disagree with a call, tell me which one and I'll swap it — the reasoning is written down so you can push back on the reasoning, not just the pick.
-
-Recommendations below are informed by real luxury-real-estate site patterns and by a distinctiveness pass — a few of the option-sheet defaults (centered-logo full-bleed hero, flat 3-column trust row, even 50/50 split) are the pattern almost every competitor site already uses. Where I picked against the "safe" option, I say so explicitly.
+**Property:** 7845 Torrison Drive, Studio City, California
+**Document status:** Experience definition for client review
+**Version:** 3.0 — full multi-page specification
+**Build status:** No visual direction is approved by this document. The next implementation must follow the selected direction and the page contracts below.
 
 ---
 
-## 1. Name / Story Direction
+## 1. What We Are Building
 
-**Recommendation: White Oak.** Pending client sign-off — this is the one call in this document that's genuinely yours, not mine.
+White Oak is not a landing page and it is not a generic vacation-rental template. It is a six-page luxury property website with three complete visual directions for client comparison.
 
-**Why:** Cielo Alto and Sundown Ridge are mood names — they'd work for any hilltop LA property with a view. White Oak is the only one of the three tied to a fixed, physical, photographable feature of *this* property. We already have footage of the tree and the swing. It gives the whole site a recurring visual anchor (see §3, signature element) instead of an abstract feeling we'd have to manufacture with stock-feeling sky shots.
+Every direction must contain these real pages:
 
-If you want to see the other 21 names before committing, say so — they exist, I just don't think you need them to make this call.
+1. Home
+2. The Estate
+3. Stay
+4. Host an Event
+5. Gallery
+6. Contact
 
----
+Every page must contain **between seven and ten deliberate content sections**, excluding the global navigation and footer. A section only counts when it advances the story, answers a user question, proves a claim, or moves the visitor toward an action. Decorative spacers, empty quotations, repeated photographs, and generic statistic rows do not count.
 
-## 2. Design System
+The three directions must not be palette swaps. Each must change:
 
-The brief already pins the direction (white/bone base, olive + gold/brass accents, oversized serif headlines, no dark theme) — I'm not deviating from that, I'm making it specific enough to build from.
+- Information hierarchy
+- Image scale and cropping
+- Typographic hierarchy
+- Page rhythm
+- Navigation behavior
+- Interaction model
+- CTA placement
+- Content density
+- Mobile composition
+- The emotional story told about the property
 
-### Color tokens
-| Token | Hex | Use |
+### Primary audiences
+
+| Audience | Primary need | Primary action |
 |---|---|---|
-| `bone` | `#FAF7F0` | Primary background |
-| `stone` | `#EFE9DC` | Secondary section background, card fills |
-| `ink` | `#24261F` | Body text, headlines (warm near-black, not pure black — keeps it out of dark-theme territory) |
-| `olive` | `#5C6B45` | Primary accent — buttons, dividers, active states |
-| `olive-deep` | `#3B4530` | Hover/pressed states |
-| `brass` | `#B8935A` | CTA highlights, small-caps label color, link-hover underline |
+| Luxury traveler | Understand the experience, amenities, privacy, and availability | View availability / book a stay |
+| Producer or location scout | Assess visual range, logistics, access, and production suitability | Request a location packet |
+| Event host or planner | Understand fit, capacity, atmosphere, and restrictions | Request an event proposal |
+| Broker, press, or collaborator | Obtain a concise property story and approved imagery | Make an inquiry |
 
-### Type
-- **Display serif:** Zodiak (Fontshare, free for commercial use). Two rejections behind this pick: Playfair Display is the legacy luxury-real-estate default, and Fraunces — my own first pick — turned out on review to be the 2026 replacement default ("Fraunces, Cormorant Garamond, DM Serif Display have replaced Playfair as the go-to display serif" per current type-trend coverage). Same problem, newer font. Zodiak is a warm, high-contrast editorial serif that holds up at oversized sizes, isn't saturated in the luxury-property space, and comes from the same foundry as the body face so the pairing is coherent by design.
-- **Body sans:** General Sans (Fontshare). Not Inter — Inter is the default every AI-assisted build reaches for, and it reads as generic at this price point. General Sans is a free, warm humanist grotesque that doesn't compete with the display face.
-- **Utility/caption:** General Sans, light weight, wide letter-spacing, small-caps — for the section labels + thin rule lines called out in the shared spec.
-- Three distinct roles (display / body / utility) mirrors how top-tier brokerages run type as brand infrastructure (e.g. Compass's three-register system: luxury, human, data) — this isn't decoration, it's the same discipline scaled to one property.
+### Core UX principle
 
-### Motion
-Scroll-triggered reveal + micro-interactions as specified, sitewide. One rule: reduced-motion is respected everywhere (`prefers-reduced-motion` disables parallax/scroll-jacking, falls back to simple fades). Framer Motion for all of it, installed at project init per stack standard.
+The site uses **progressive commitment**:
 
-### Signature element
-**The oak line-mark.** A single-line ink illustration of the oak canopy (thin, minimal, brass or olive stroke) used as the section-divider mark sitewide, replacing generic icon dividers or numbered markers. It's the one recurring graphic element the whole site is built around, and it's literal to the property and the name — not decoration for its own sake.
+1. Create desire.
+2. Establish place and credibility.
+3. Reveal the property in useful detail.
+4. Answer audience-specific questions.
+5. Provide proof.
+6. Present the appropriate next action.
 
-**Bookend structure:** hero opens on live video (golden hour), closing CTA closes on live video (dusk/firepit). Same time-of-day logic, open and close — the site reads as one day at the property, not a stack of disconnected sections.
+No page should open with a form, bury essential facts, or force a user through atmosphere when they need logistics. Narrative and utility must coexist.
 
 ---
 
-## 3. Homepage — Section-by-Section Decisions
+## 2. Three Complete Design Directions
 
-| # | Section | Decision | Why |
-|---|---|---|---|
-| 1 | Hero | **Split Editorial (B)** | Full-bleed-centered-logo (A) is the default every luxury rental site already runs. Split editorial with oversized type is the actual differentiator the brief's own "recipe" line points at. |
-| 2 | Trust Strip | **Off-Grid Asymmetric (B)** | Keeps the editorial rhythm the hero just established. A flat 3-column row directly under an asymmetric hero would read as the template snapping back on. |
-| 3 | Setting / Location | **Full-Width Landscape Moment (A)** | This is the site's second big visual beat. The view is the actual product differentiator (proximity to studios, hilltop privacy) — it earns an undiluted full-bleed treatment before we start explaining the house. |
-| 4 | The Estate | **Overlapping Collage (B)** | Straight alternating split (A) is what Page 2 already does in full detail — repeating that pattern on the homepage preview would make both pages feel like the same section twice. Collage keeps this a *preview*, gallery-like, and visually distinct from the dedicated Estate page. |
-| 5 | The Oak Moment | **Short Video Loop (B)** | The shared spec already says video should replace stills for exactly this kind of moment (the oak, the pool, the view). Given this is the section the name direction is built around, it should be the one guaranteed to move. |
-| 6 | Stay vs. Host | **60/40 Weighted, Host emphasized (B)** | Host an Event is the higher-margin line per the option sheet's own note. A 50/50 split is a non-decision dressed up as balance — weighting it is information, not just a style choice, and it's the same "structure encodes meaning" logic the brief already applies to the trust strip. |
-| 7 | Gallery Preview | **Masonry Grid (A)** | Between a full-bleed Setting section and a full-bleed video CTA, a third full-bleed slideshow here is one cinematic beat too many. Horizontal scroll rail (C) is the highest-effort, highest mobile-risk technique on either sheet — save it for the dedicated Gallery page where a real curated set justifies it (see §5). |
-| 8 | Social Proof | **Press-Style Strip (B)** | Karen's press mentions and music-video credits are already expected assets. A plain stat row is filler until those land; building press-style from day one means the section doesn't need rebuilding when they arrive. |
-| 9 | Closing CTA | **Video Background (B)** | Completes the bookend structure (§2) — video open, video close. |
+### Direction A — Editorial Residence
 
----
+**Story:** A privately held architectural residence presented like a collectible design object.
 
-## 4. Page 2 — The Estate
+- Bright, tactile, restrained, magazine-like
+- Asymmetric grids, generous negative space, unexpected image crops
+- Large editorial serif paired with a quiet grotesque
+- Warm white, ink, mineral gray; no dominant green, beige, or gold fields
+- Navigation is slim and persistent
+- Motion is slow: masked image reveals, subtle text movement, restrained parallax
+- CTAs read like private invitations rather than booking widgets
+- Best suited to luxury stays, design-conscious guests, and brand prestige
 
-**Decision: Sticky Image / Scrolling Copy (B).**
+### Direction B — Cinematic Escape
 
-Vertical alternating split (A) is the pattern already ruled out for the homepage preview (§3.4) — using it here too would mean the site's two most detail-heavy sections both default to the same layout. Sticky-scroll is the actual "magazine spread" feel the oversized-serif/editorial direction is chasing, and it's a proven pattern on high-end architecture sites, not an invented one.
+**Story:** One day and one night above Los Angeles, told as an immersive film.
 
-Room tabs (C) is faster to browse but optimizes for someone who already knows what they want — a location scout jumping straight to "Pool." That's a real use case, not the primary one. **Gap-fill:** add a lightweight jump-nav (anchor links to each room) as a progressive enhancement on top of the sticky-scroll build, so scouts get the fast path without the whole page defaulting to utility-first.
+- Image-led, dark-to-light pacing, full-bleed transitions
+- Oversized scene titles and time-of-day chapter markers
+- Near-black, cloud white, concrete gray; color comes from the photography
+- Navigation begins transparent and becomes solid after the first scene
+- Motion is atmospheric: controlled crossfades, video loops, ambient sound optional and off by default
+- CTAs appear after emotionally complete sequences
+- Best suited to emotional impact, hospitality, launches, and entertainment clients
 
----
+### Direction C — Production House
 
-## 5. Page 3 — Stay
+**Story:** A beautiful, capable private estate with the clarity of a premium location dossier.
 
-**Decision: Story-First, Booking Second (B).**
+- Structured, information-forward, confident
+- Modular grid, numbered chapters, annotated imagery, useful data
+- White, graphite, cool gray; one restrained signal color for actions
+- Navigation includes fast audience routes: Stay / Shoot / Gather
+- Motion is functional: pinned indexes, filter transitions, comparison states
+- CTAs are explicit and task-oriented
+- Best suited to producers, planners, representatives, and high-intent leads
 
-This keeps the same narrative logic already locked in for the rest of the site: feeling before form. The homepage leads with the view before the house; this page should lead with what a stay *feels like* before amenities and before the booking ask. Matches the proven pattern cited in the option sheet (theestateatriverrun.com) rather than inventing a new structure just for this page.
+### Comparison-mode behavior
 
-Two-column utility (C) is worth revisiting post-launch if analytics show visitors are arriving pre-decided and bouncing before the story section — that's a real possibility for repeat Airbnb guests, but not something to design against without data.
-
-**Booking mechanics (gap the option sheets never answered):** for v1, the Stay CTA is an outbound link to the live Airbnb listing — no on-site booking engine. Industry data says direct bookings average roughly double the value of an Airbnb booking ($1,935 vs $906 per reservation), so a direct-booking engine with a "book direct and save" incentive is the obvious post-launch upsell to pitch the client — but it needs payment processing, calendar sync, and guest-vetting decisions that are out of scope for a launch site. Build the Stay CTA as a swappable component so the Airbnb link becomes a booking widget later without touching the page.
-
----
-
-## 6. Page 4 — Host an Event
-
-**Decision: Segmented by Use Case (C) — conditional on Karen's past-event footage.**
-
-C is the strongest conversion structure: it pre-qualifies the visitor (film shoot vs. corporate vs. wedding) and folds capacity data and social proof *into* each tailored path instead of making every visitor read all of it. But C only works once there's real past-event material to populate each segment with.
-
-**Competitor research (2026 venue-site conversion patterns):** current best practice across top event-venue sites is exactly this — one page should prioritize one primary conversion objective per audience segment, with first-screen clarity on audience fit before anything else. Logistics (capacity, dimensions, AV specs) get shown to reduce uncertainty *before* the visitor reaches the form, and CTAs land at high-confidence moments — after value framing, after logistics, near proof — not just once at the bottom. That's the exact shape of C: each segment (Film & Photo / Corporate / Weddings) gets its own value framing → capacity specs → proof, funneling into the shared form at the point each visitor is actually ready, instead of one generic scroll everyone has to sit through regardless of why they're here. The "mosaic gallery of past events, click through to details" pattern that recurs across luxury estate event sites is also the direct precedent for folding proof into each segment rather than running it as one undifferentiated block (which is what A does).
-
-**Fallback, explicitly not a redesign:** if the footage isn't in hand at build time, ship **Capacity-First (A)** first — it needs no additional assets — and upgrade to C in a fast follow the moment Karen's material lands. Build the page's content model so this is a data swap, not a rebuild.
-
----
-
-## 7. Page 5 — Gallery / Press
-
-**Decision: Hybrid — not one of the three as-is.**
-
-The option sheet's own notes flag the real tension: slideshow suits a curated highlight set, horizontal rail suits a tight 15–20 image set, and masonry is the only one of the three that scales to "the entire photo library." Picking just one loses either the wow-factor or the completeness.
-
-**Build:** a short horizontal highlight rail (10–15 best shots, the wow-factor technique) at the top of the page, full masonry grid with filter tabs (Interiors / Exteriors / Events / Press) below it for the complete library. This gets both things the three options were each solving for half of.
-
-Press strip stays as specified once Karen's mentions/credits are confirmed.
+- A persistent concept control appears above the website during client review only.
+- Switching direction preserves the current page.
+- Example: Editorial Gallery → Cinematic Gallery → Production Gallery.
+- The control disappears in the final client-selected build.
+- Content facts remain consistent across directions; hierarchy and presentation change.
 
 ---
 
-## 8. Tech Stack & Delivery
+## 3. Global Experience System
 
-- React + Vite, Tailwind CSS
-- Framer Motion (installed at project init, per standard)
-- Deployed via Vercel, repo on GitHub, auto-deploy on push
-- 21st.dev checked first for any component before hand-building one
+### Navigation
 
-### Video performance budget (binding — this site has four video moments)
-The spec calls for video in the hero, the Setting section, the Oak loop, and the closing CTA. Four autoplaying videos is how a cinematic site becomes a slow site, so these rules are not optional:
-- Hero video: MP4/H.264, ≤4MB desktop; mobile gets the poster image by default (mobile is over 60% of accommodation-booking traffic — battery and data matter more than the loop)
-- All videos: `muted autoplay loop playsinline` + a real `poster` attribute — the poster is an LCP candidate, so it's a hand-picked frame, compressed, never a black frame
-- Headline renders before video buffers; below-fold videos (Oak loop, closing CTA) lazy-load
-- `prefers-reduced-motion` swaps every video for its poster
-- Loops stay 5–15 seconds; anything longer gets cut down, not uploaded
+Desktop navigation includes Home, The Estate, Stay, Host an Event, Gallery, and Contact. The property wordmark returns home. One primary CTA changes by context:
 
-### Site chrome & plumbing (gaps the option sheets never covered)
-- **Nav:** sticky header per shared spec — wordmark left, five links (Home / The Estate / Stay / Host an Event / Gallery), brass-accented "Inquire" button always visible. Mobile: full-screen overlay menu, not a cramped dropdown.
-- **Footer:** wordmark, nav links, inquiry email, Airbnb listing link, oak line-mark as the closing graphic. No fake social icons — only links that exist.
-- **Inquiry form backend:** static site has no server — form posts to a form service (Formspree or equivalent) forwarding to the client's email. `.env.example` carries the endpoint ID.
-- **SEO/meta:** per-page titles + descriptions, OG image (hero still), favicon derived from the oak line-mark.
-- **Analytics:** Vercel Analytics (zero-config) at launch; anything heavier is a client decision later.
+- Home / Estate / Gallery: **Inquire**
+- Stay: **Check Availability**
+- Host: **Request a Proposal**
+- Contact: no duplicate CTA
 
-### Output structure
-```
-/torrison-drive
-├── /src
-├── README.md
-├── deploy-instructions.md
-└── .env.example
-```
+Mobile navigation opens as a full-screen, accessible menu with the three audience paths visible before the secondary links.
+
+### Footer
+
+The footer contains:
+
+- White Oak wordmark and full address
+- Six-page navigation
+- Stay and event inquiry actions
+- Airbnb or approved booking destination
+- Email and phone when supplied
+- Instagram only if an active account is supplied
+- Legal links: Privacy and Accessibility
+- A restrained closing image or typographic sign-off
+
+No fake awards, fake press marks, fake testimonials, or nonfunctional social icons.
+
+### Shared interaction rules
+
+- All controls have visible hover, focus, active, disabled, and loading states.
+- Every animated experience has a reduced-motion equivalent.
+- No scroll-jacking.
+- Gallery gestures always have visible buttons and keyboard alternatives.
+- Sticky elements release before colliding with the footer.
+- Forms preserve user input when validation fails.
+- Filters update counts and can be cleared in one action.
+- Page transitions never delay navigation.
+
+### Responsive rules
+
+- Mobile is recomposed, not merely stacked.
+- Essential facts and first CTA appear within the first two mobile screens.
+- Editorial overlaps simplify into clean edge-to-edge sequences.
+- Cinematic video becomes a compressed poster or short optimized loop.
+- Production tables become labeled cards rather than horizontal overflow.
+- Tap targets are at least 44 × 44 px.
+- Body copy never falls below 16 px.
+
+### Image rules
+
+- Use the supplied property library; do not generate replacement photographs of the house.
+- Every page has a shot plan. The same hero image cannot lead more than one page.
+- Images need art-directed desktop and mobile crops.
+- Avoid using more than two consecutive full-bleed photographs.
+- Captions explain rooms, views, use, or time of day; they are not poetic filler.
+- Approved photography must be downloadable only where the client authorizes it.
+
+### Performance and accessibility
+
+- Target LCP below 2.5 seconds on a typical mobile connection.
+- Only the first visible hero asset loads eagerly.
+- Below-fold media lazy-loads.
+- Video uses posters, muted autoplay, plays inline, and pauses when not visible.
+- WCAG 2.2 AA contrast and keyboard behavior are required.
+- Semantic headings follow the content hierarchy.
+- All meaningful images receive descriptive alt text; decorative images use empty alt text.
 
 ---
 
-## 9. Open Items — need client input before build starts
+## 4. HOME — 10 Sections
 
-1. **Name direction** — confirm White Oak, or ask to see the extended 22-name list (§1).
-2. **Video/photo assets** — current mockup plan uses Airbnb listing photos as placeholders. Karen's walkthrough video and unreleased music-video footage are expected for: homepage hero, Host an Event past-events section, Gallery highlights rail. Build proceeds with placeholders regardless — assets get swapped in when they land, not blocking.
-3. **Host an Event footage timing** — determines whether Page 4 ships as Capacity-First or Segmented-by-Use-Case at launch (§6).
+**Page objective:** Introduce the property, distinguish its three revenue uses, and direct each audience into the right journey without making the homepage do every page's job.
+
+| # | Section | Content and visual composition | UX behavior | Conversion purpose |
+|---|---|---|---|---|
+| 1 | Opening statement | Property name, location, one defining sentence, one signature exterior image or film, primary and secondary CTA | Hero media loads after headline; mobile uses an art-directed poster | Establish identity and offer Stay / Host paths immediately |
+| 2 | Audience gateway | Three choices: Stay Here, Host an Event, Scout the Location; each has one sentence and a relevant image detail | Hover or focus previews the corresponding environment; mobile uses large stacked links | Let visitors self-select without searching the navigation |
+| 3 | The address in context | Map relationship to Studio City, major studios, Sunset, airport, and neighborhood; privacy language without exposing security details | Interactive distance list highlights map points; map has static accessible fallback | Explain why this location is unusually useful |
+| 4 | Signature panorama | The property's strongest wide view with a short statement about elevation, light, and privacy | Optional slow pan; reduced motion uses a still | Deliver the principal emotional payoff |
+| 5 | Estate preview | Curated sequence of architecture, living spaces, bedrooms, pool, and grounds with six verified facts | Images reveal in a controlled sequence; “Explore the Estate” remains visible | Turn atmosphere into concrete value |
+| 6 | A day at White Oak | Morning, afternoon, golden hour, and night told with four scenes and concise captions | Desktop may pin the time marker; mobile becomes a chronological story | Help guests and hosts imagine actual use |
+| 7 | Stay / Gather / Create | Three use cases with tailored proof, not generic cards: overnight retreat, private gathering, production location | Selecting one changes the supporting facts and CTA without hiding the other paths | Connect the property to intent |
+| 8 | Proof and provenance | Verified credits, approved press, past clients, or—in their absence—specific property facts and guest-review excerpts | Logo/review carousel only when enough real material exists; otherwise static editorial proof | Reduce perceived risk without fabricated prestige |
+| 9 | Gallery preview | Curated 8–12 image edit organized as Arrival, Interior, Water, View, Night | Accessible lightbox; “View all photographs” carries current category if selected | Reward exploration and lead to the full visual record |
+| 10 | Closing invitation | Dusk or night image, tailored prompt, Stay and Event CTAs, concise contact alternative | CTA copy changes based on last selected audience path; no intrusive popup | Convert the emotional narrative into action |
+
+### Home layout variants
+
+**A — Editorial Residence**
+
+- Hero uses an offset 40/60 composition with the title intruding into the photograph.
+- Audience gateway is a typographic index, not three equal cards.
+- Context is a small printed-map composition beside an oversized location statement.
+- Estate preview uses overlapping editorial plates and room captions.
+- Day sequence reads like four magazine spreads.
+- Closing invitation is mostly typography with one narrow cinematic image.
+
+**B — Cinematic Escape**
+
+- Hero is a full-viewport establishing shot with minimal text.
+- Audience gateway appears after the first emotional scene.
+- The page progresses morning → afternoon → sunset → night.
+- Estate and use cases appear as film chapters with short crossfades.
+- Proof interrupts the cinematic flow as a quiet title card.
+- Closing scene echoes the opening composition at night.
+
+**C — Production House**
+
+- Hero combines a powerful image with an immediate facts panel.
+- Audience gateway is the primary organizing system: Stay / Shoot / Gather.
+- Location context includes travel-time chips and a downloadable summary.
+- Estate preview is an annotated contact sheet.
+- Day sequence proves lighting conditions by time.
+- Closing invitation offers Book, Request Deck, and Schedule Scout actions.
 
 ---
 
-## 10. What happens next
+## 5. THE ESTATE — 9 Sections
 
-On approval of this spec: mockup build starts against the White Oak direction (or your correction), three initial name/section combinations get built out per the original option-sheet plan for side-by-side comparison, then we converge on one build from there.
+**Page objective:** Provide an architectural and spatial understanding of the house while preserving a sense of discovery.
+
+| # | Section | Content and visual composition | UX behavior | Conversion purpose |
+|---|---|---|---|---|
+| 1 | Estate introduction | Distinct page hero, architectural thesis, verified headline facts | Room index becomes sticky after the hero | Establish scale and orientation |
+| 2 | At-a-glance facts | Bedrooms, bathrooms, guest capacity, major indoor/outdoor spaces, parking when verified | Facts expose definitions or caveats on focus/tap | Answer immediate qualification questions |
+| 3 | Arrival | Gate, approach, entrance, first interior sightline | Short image sequence follows physical movement through the property | Make the plan understandable |
+| 4 | Living and gathering | Living room, dining, kitchen, indoor-outdoor connection | Hotspots identify features without covering imagery; keyboard accessible | Show social capacity and design quality |
+| 5 | Private rooms | Primary suite and guest rooms with honest distinctions and amenity details | Room selector changes content; URL can preserve selected room | Help guests assess sleeping arrangements |
+| 6 | Pool and terraces | Pool, deck, dining terrace, view orientation, day/night usage | Before/after daylight toggle only if matched images exist | Sell the defining outdoor experience |
+| 7 | Grounds and oak | Tree, swing, garden, paths, quiet zones, usable exterior areas | Slow vertical reveal or annotated site diagram | Give the name and landscape genuine meaning |
+| 8 | Plans and specifications | Floor-plan placeholder pending approved plan; accessibility, parking, Wi-Fi, climate, rules, and key dimensions | Expandable specification groups; print-friendly mode | Serve planners and detail-oriented guests |
+| 9 | Next-step gateway | Choose Stay, Host an Event, Gallery, or Ask a Question | Recommendations change based on sections viewed, without tracking personal data | Move users to the relevant conversion page |
+
+### Estate layout variants
+
+**A — Editorial Residence:** Sticky room photography with scrolling essays; floor plan treated like a foldout; asymmetry and captions create a collected-home feeling.
+
+**B — Cinematic Escape:** The visit unfolds as arrival → interior → private rooms → water → grounds → night, using scene transitions and minimal interface.
+
+**C — Production House:** Persistent room index, annotated images, spec drawers, orientation diagrams, and a print/download-ready location-dossier structure.
 
 ---
 
-## 11. Client Comparison Mode — July 2026 Update
+## 6. STAY — 9 Sections
 
-The first deliverable is an interactive client-facing concept comparison, not a single locked layout. A persistent switch lets the client move between three coherent directions while the property facts and navigation remain stable:
+**Page objective:** Move a qualified guest from aspiration to a confident booking action while setting accurate expectations.
 
-1. **Editorial Residence** — asymmetric, story-first, tactile, and suited to luxury-stay positioning.
-2. **Cinematic Escape** — full-bleed, emotionally led, and suited to a name/story reveal.
-3. **Production Venue** — information-forward, high-clarity, and suited to events, shoots, and lead conversion.
+| # | Section | Content and visual composition | UX behavior | Conversion purpose |
+|---|---|---|---|---|
+| 1 | Stay introduction | Guest-oriented hero, promise, verified occupancy, bedroom count, booking CTA | CTA remains available in a compact sticky bar after hero | Make purpose and availability path obvious |
+| 2 | The guest experience | Concise narrative covering privacy, hosting style, arrival, and pace of stay | Three story beats reveal on scroll without hiding text | Define the experience beyond amenities |
+| 3 | Sleeping arrangements | Each bedroom, bed type, bathroom relationship, privacy, and occupancy | Accessible room tabs or accordion; mobile defaults expanded one at a time | Prevent booking uncertainty |
+| 4 | Shared living | Kitchen, dining, lounge, work areas, indoor-outdoor use | Photo-and-fact pairs; no ornamental slideshow | Demonstrate practical comfort |
+| 5 | Pool, view, and outdoor life | Pool conditions, terraces, oak, dining, quiet hours, safety notes | Day/night comparison where photography supports it | Sell the key experience and disclose constraints |
+| 6 | Amenities and services | Grouped essentials, comfort, entertainment, work, family, parking, optional services | Searchable/filterable list only if more than 24 items | Answer final qualification questions quickly |
+| 7 | Neighborhood and itinerary | Curated morning, afternoon, dinner, and studio-access recommendations with travel times | Map/list toggle; external destinations clearly identified | Position the stay within Los Angeles |
+| 8 | Guest proof and policies | Verified review excerpts, check-in/out, cancellation destination, house rules, accessibility notes | Policies expand inline; no surprise modal at booking | Build trust and set expectations |
+| 9 | Availability and booking | Current booking destination, pricing disclaimer, inquiry alternative, direct-booking future slot | External booking opens with clear handoff; event inquiries are separated | Complete the booking journey |
 
-The comparison covers Home, The Estate, Stay, Host an Event, Gallery, and Contact. Each direction changes hierarchy, composition, CTA emphasis, imagery treatment, and narrative pacing—not only colors or typography.
+### Stay layout variants
 
-The prototype uses polished placeholder imagery until Karen's approved assets arrive. Final asset replacement must preserve crops, poster-frame performance requirements, meaningful alt text, and mobile art direction.
+**A — Editorial Residence:** Reads like a travel-journal feature; rooms are individual editorial portraits; booking appears as a restrained reservation ribbon.
+
+**B — Cinematic Escape:** Follows one guest day from waking to night swimming; amenities enter at natural moments; booking closes the film.
+
+**C — Production House:** Leads with occupancy and availability; rooms use a comparison matrix; amenities, policies, and neighborhood logistics are faster to scan.
+
+---
+
+## 7. HOST AN EVENT — 10 Sections
+
+**Page objective:** Qualify event and production leads, demonstrate creative range, answer logistics early, and collect enough information for a useful response.
+
+| # | Section | Content and visual composition | UX behavior | Conversion purpose |
+|---|---|---|---|---|
+| 1 | Host introduction | Page-specific hero, approved event imagery, three audience routes: Film & Photo, Private Events, Brand & Corporate | Selecting a route personalizes examples, facts, and form subject | Confirm audience fit immediately |
+| 2 | Use-case selector | Each route explains best-fit formats, atmosphere, and primary limitations | Persistent segmented control; selection is reflected in the URL | Prevent irrelevant information overload |
+| 3 | Spaces available | Terrace, pool, interiors, kitchen, grounds, arrival zone, holding areas when verified | Interactive location map links spaces to images and dimensions | Show how the property can be used |
+| 4 | Capacity and configurations | Seated, standing, crew, staging, parking, load-in, power, sound, and curfew—all pending verification where needed | Toggle between use cases; unknown values visibly marked “Confirm with host” | Qualify serious inquiries honestly |
+| 5 | Visual possibilities | Curated case-study-style scenes: editorial shoot, dinner, launch, interview, retreat | Filtered image story; no fabricated past-event claims | Help visitors translate the house into their concept |
+| 6 | Production logistics | Access, Wi-Fi, power, hair/makeup possibilities, holding, restrooms, neighborhood sensitivity, insurance | Downloadable preliminary location sheet after facts are approved | Reduce scout friction |
+| 7 | Event services | Coordination, rentals, catering policy, security, cleaning, preferred partners, optional add-ons | Service inclusions and third-party items are clearly separated | Clarify scope and increase lead quality |
+| 8 | Proof / selected occasions | Approved past events, credits, testimonials, or anonymized factual examples | Each case reveals brief, configuration, and outcome; no logo without approval | Demonstrate competence |
+| 9 | Planning process | Inquiry → fit call → scout → proposal → agreement → event; typical response expectations | Progress diagram becomes a simple vertical sequence on mobile | Explain what happens after submission |
+| 10 | Event inquiry | Purpose-built form: event type, date flexibility, guest/crew count, hours, budget range, spaces, notes, attachments/link | Multi-step only if completion testing supports it; autosave locally; clear success state | Capture an actionable brief |
+
+### Host layout variants
+
+**A — Editorial Residence:** Event types appear as art-directed stories; logistics arrive in elegant foldout panels; form feels like a private commission request.
+
+**B — Cinematic Escape:** Opens with a finished-event scene, rewinds through transformation and setup, then reveals spaces, logistics, process, and inquiry.
+
+**C — Production House:** Audience selector and spec summary appear immediately; annotated plans, capacity tables, location packet, and structured lead form dominate.
+
+---
+
+## 8. GALLERY — 8 Sections
+
+**Page objective:** Present a complete, fast, and art-directed visual record without turning the page into an undifferentiated image dump.
+
+| # | Section | Content and visual composition | UX behavior | Conversion purpose |
+|---|---|---|---|---|
+| 1 | Gallery introduction | Page title, short curatorial statement, category count, strongest unused image | Category navigation becomes sticky after hero | Set expectations and establish authorship |
+| 2 | Featured visual story | 8–12-image edit with intentional sequence and captions | Controlled carousel or scroll sequence with buttons, keyboard, and progress | Deliver a high-impact first viewing |
+| 3 | Category index | All, Architecture, Interiors, Bedrooms, Pool & Grounds, Views, Events/Production when approved, Night | Filters update URL, count, and grid without page reset | Make a large library manageable |
+| 4 | Complete image collection | Varied but disciplined grid preserving important crops | Progressive loading, stable layout, no duplicate images | Provide depth and completeness |
+| 5 | Image detail view | Large image, room/category, caption, sequence position, related images | Accessible lightbox, swipe plus visible controls, close restores scroll position | Support close inspection |
+| 6 | Day to night | Matched locations across morning, golden hour, blue hour, and night | Time slider only for true matched scenes; otherwise paired images | Prove the property's range |
+| 7 | Press and approved use | Credits, publications, production stills, usage notes, approved downloadable assets | Separate press kit action; download requires only necessary contact details | Serve media and production inquiries |
+| 8 | Gallery exit paths | Context-aware links to Estate, Stay, Host, and Contact | CTA reflects active image category | Convert visual interest into the right next step |
+
+### Gallery layout variants
+
+**A — Editorial Residence:** Curated magazine plates first, masonry archive second, captions always visible, lightbox resembles a print-viewer.
+
+**B — Cinematic Escape:** Full-screen chapters with deliberate pacing, followed by a conventional filterable archive for visitors who want speed.
+
+**C — Production House:** Contact-sheet opening, fast filters, metadata, orientation tags, shortlist function, and a clear location-packet request.
+
+---
+
+## 9. CONTACT — 8 Sections
+
+**Page objective:** Route each inquiry correctly, set response expectations, and collect the minimum useful information without creating friction.
+
+| # | Section | Content and visual composition | UX behavior | Conversion purpose |
+|---|---|---|---|---|
+| 1 | Contact introduction | Human, direct invitation with real response expectation and one quiet property image | No generic “Get in touch” headline; page purpose is explicit | Reduce uncertainty |
+| 2 | Inquiry routing | Stay, Event, Production, Press/Partnership, General | Selecting a route changes only relevant fields and supporting copy | Send leads into the right workflow |
+| 3 | Quick-contact options | Email, phone if approved, booking link, location-scout request | Copy email control; clear external-link labels | Serve visitors who do not need a form |
+| 4 | Context panel | Address area, privacy note, travel context, business hours or response window | Exact arrival instructions are never publicly exposed | Establish location and expectations safely |
+| 5 | Tailored inquiry form | Shared identity/contact fields plus route-specific details | Inline validation, keyboard support, saved draft, clear required/optional labels | Capture enough information to respond well |
+| 6 | What happens next | Confirmation, response, qualification call, scout or booking handoff | Steps update based on inquiry route | Make submission feel consequential |
+| 7 | Frequently asked questions | Availability, rates, events, shoots, parking, pets, privacy, neighborhood constraints | Search-free accordion; answers link to deeper pages | Remove common blockers before submission |
+| 8 | Final reassurance | Privacy statement, no-spam promise, alternate contact, closing image or line | Success state replaces—not merely clears—the form | End with trust and clarity |
+
+### Contact layout variants
+
+**A — Editorial Residence:** Large typographic invitation, route choices as a refined index, form revealed only after intent selection.
+
+**B — Cinematic Escape:** Quiet full-screen opening image transitions into a focused dark/light form sequence with minimal surrounding content.
+
+**C — Production House:** Route selector, response details, and structured form visible immediately; FAQs and process sit beside it on wide screens.
+
+---
+
+## 10. Cross-Page Story and Internal Linking
+
+The pages must feel related without repeating the same sections.
+
+| From | Natural next page | Reason |
+|---|---|---|
+| Home audience gateway | Stay / Host | User declares intent |
+| Home estate preview | The Estate | User wants spatial detail |
+| Estate private rooms | Stay | Bedrooms create booking confidence |
+| Estate spaces/specifications | Host | Spaces create event or production interest |
+| Stay outdoor life | Gallery filtered to Pool & Grounds | User wants visual proof |
+| Host visual possibilities | Gallery filtered to Events/Production | Planner wants examples |
+| Gallery image detail | Estate or Host based on category | Image interest becomes contextual action |
+| Any page | Contact with inquiry type preselected | Reduce repeated user work |
+
+Back buttons, browser history, shared URLs, and scroll restoration must behave normally. Filters and audience selections should be represented in the URL where practical.
+
+---
+
+## 11. Content and Asset Requirements
+
+### Required before final production
+
+- Approved property name and wordmark
+- Verified bedroom, bathroom, occupancy, parking, and capacity facts
+- Current booking URL and booking rules
+- Correct inquiry email and phone
+- Event rules, insurance requirements, curfew, access, and neighborhood constraints
+- Approved press names, logos, credits, testimonials, and event imagery
+- Floor plans or permission to omit them
+- Photography usage rights
+- Privacy policy and legal business name
+
+### Content integrity
+
+- Unknown information is labeled **To be confirmed**, never invented.
+- Placeholder testimonials and logos must never enter production.
+- Copy avoids empty luxury language such as “unparalleled,” “breathtaking,” and “exclusive” unless supported by a specific fact.
+- The address is Studio City. “Hollywood Hills” may be used only as approved positioning, not as a false physical address.
+
+### Photography shot map
+
+Before design begins, the 81 supplied photographs must be catalogued by:
+
+- Orientation and resolution
+- Room or exterior area
+- Time of day
+- Audience relevance: Stay / Event / Production
+- Desktop and mobile crop viability
+- Hero eligibility
+- Duplicate or near-duplicate status
+- Retouching requirement
+
+The design should be built around the strongest available material, not force photographs into a predetermined template.
+
+---
+
+## 12. Conversion and Form Requirements
+
+### Stay path
+
+Home → Stay → external availability/booking destination. The handoff must say that the user is leaving White Oak and identify the booking provider.
+
+### Event / production path
+
+Home or Host → tailored inquiry → confirmation → response expectation. Event inquiries must not be sent through a generic contact form.
+
+### Form behavior
+
+- Server-backed delivery; no `mailto:` forms
+- Spam protection that does not punish legitimate users
+- Field-level validation
+- Explicit consent language
+- Useful confirmation screen and confirmation email
+- Analytics events for form start, error, completion, and booking handoff
+- No sensitive information requested
+
+---
+
+## 13. SEO, Analytics, and Sharing
+
+Each page receives a unique title, description, canonical URL, social image, and structured data where appropriate.
+
+- Home: property identity and location positioning
+- Estate: architecture, rooms, amenities, and grounds
+- Stay: luxury stay intent
+- Host: event venue and filming-location intent
+- Gallery: property image archive
+- Contact: inquiry intent
+
+Measure:
+
+- Audience gateway selection
+- Navigation path
+- Gallery filters and image opens
+- Availability handoff
+- Event form start and completion
+- Contact route selection
+- Scroll depth only as supporting evidence, not success by itself
+
+No analytics or advertising scripts launch without a consent and privacy decision.
+
+---
+
+## 14. Acceptance Criteria
+
+The design is not ready for client review unless all of the following are true:
+
+1. All six primary pages are real URLs.
+2. Every page contains 7–10 substantive sections as specified.
+3. All three concepts exist for every page.
+4. Switching concepts preserves the current page.
+5. Every concept changes composition and UX, not merely color and type.
+6. The same hero photograph is not reused across pages.
+7. Every CTA works or is visibly labeled as a prototype.
+8. Forms have complete validation, error, loading, and success states.
+9. Desktop, tablet, and mobile compositions have been reviewed.
+10. Keyboard navigation and reduced motion have been tested.
+11. No invented facts, testimonials, clients, press, or capacity claims appear.
+12. The full property image library has been catalogued before final art direction.
+13. Performance budgets are met on mobile.
+14. Every page has a clear beginning, progression, proof point, and next action.
+15. Client comparison controls are clearly separated from the final-site navigation.
+
+---
+
+## 15. Approval Gates
+
+The next implementation proceeds in this order:
+
+1. Approve this information architecture and the six page contracts.
+2. Catalogue the real property assets and verify facts.
+3. Produce low-fidelity wireframes for all six pages in all three directions.
+4. Review the three homepages and one representative inner page from each direction.
+5. Choose or combine a direction.
+6. Produce high-fidelity desktop and mobile designs.
+7. Build the approved system.
+8. Complete content, accessibility, performance, and conversion QA.
+9. Publish only after client sign-off.
+
+No high-fidelity rebuild should begin by improvising sections that are already defined here.
