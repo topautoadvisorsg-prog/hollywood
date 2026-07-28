@@ -65,6 +65,8 @@ No page should open with a form, bury essential facts, or force a user through a
 
 **Story:** A privately held architectural residence presented like a collectible design object.
 
+**Binding reference for Layout 1:** `ChatGPT Image Jul 27, 2026, 10_34_32 PM.png`. This reference controls the homepage's visual hierarchy, negative space, image-to-type ratio, collage logic, warm editorial photography, fine rules, restrained accent use, and section pacing. The implementation must use real White Oak property photography in place of any synthetic house imagery. It may adapt crops and responsive composition, but it must not flatten the reference into generic cards or reduce its section count.
+
 - Bright, tactile, restrained, magazine-like
 - Asymmetric grids, generous negative space, unexpected image crops
 - Large editorial serif paired with a quiet grotesque
