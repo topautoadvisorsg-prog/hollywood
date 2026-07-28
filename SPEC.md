@@ -509,6 +509,25 @@ No high-fidelity rebuild should begin by improvising sections that are already d
 
 White Oak is not presented as a conventional real-estate listing. The experience is a cinematic, interactive property documentary in which the visitor controls pacing through scrolling.
 
+> **Every scroll should feel like the next shot in a beautifully directed film. Every transition should have a purpose. Every pause should allow the visitor to appreciate the space before continuing the journey.**
+
+## Four-act direction
+
+- **Act I — Arrival:** Where am I? Establish place, scale and atmosphere.
+- **Act II — Discovery:** Walk through the property and understand its spatial sequence.
+- **Act III — Experience:** Replace room labels with emotional possibilities: Gather, Taste, Rest, Unwind, Connect.
+- **Act IV — Memory:** Leave one unforgettable night image and a quiet invitation.
+
+Signature moments are deliberately limited to the arrival reveal, a spatial transition, the pool at sunset and the night reveal. Calm editorial scrolling separates them so the experience has rhythm rather than constant spectacle.
+
+## Sound direction
+
+- Ambient sound, never background music.
+- Muted by default with a small persistent speaker control.
+- Authentic property recordings are required for final production: birds, wind, leaves, water, fire and distant city tone.
+- Prototype ambience must be labeled as concept sound and replaced before final production.
+- Sound fades between acts and stops when the page is hidden.
+
 ## Narrative sequence
 
 1. Arrival — quiet opening and slow reveal.
