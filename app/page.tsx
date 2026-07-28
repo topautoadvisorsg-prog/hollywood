@@ -1,0 +1,31 @@
+"use client";
+import { useState } from "react";
+
+const concepts = [
+  { id: "editorial", label: "01 Editorial", note: "Story-led · cinematic · residential" },
+  { id: "cinematic", label: "02 Cinematic", note: "Image-led · immersive · emotional" },
+  { id: "venue", label: "03 Venue", note: "Conversion-led · precise · event-ready" },
+] as const;
+type Concept = (typeof concepts)[number]["id"];
+const content = {
+  editorial:{eyebrow:"A PRIVATE ESTATE IN THE HOLLYWOOD HILLS",title:<>A house with<br/>a point of view.</>,intro:"Above the city, White Oak moves at its own pace—a private hillside home shaped for long lunches, late swims, and beautifully produced moments.",cta:"Discover the estate",secondary:"Plan your stay",hero:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=88",stat:"5 bedrooms · 7 baths · panoramic canyon views"},
+  cinematic:{eyebrow:"WHITE OAK · HOLLYWOOD, CALIFORNIA",title:<>The city fades.<br/>The story begins.</>,intro:"A cinematic refuge above Los Angeles—made for golden-hour arrivals, nights beneath the oak, and mornings that can take their time.",cta:"Enter White Oak",secondary:"Watch the story",hero:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=88",stat:"34.1016° N · 118.3269° W"},
+  venue:{eyebrow:"STAY · CREATE · GATHER",title:<>Your next scene<br/>is already set.</>,intro:"A production-ready Hollywood Hills estate with cinematic views, flexible gathering spaces, and the privacy to make ambitious ideas happen.",cta:"Start an inquiry",secondary:"View spaces & capacity",hero:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=88",stat:"Film & photo · private events · luxury stays"}
+};
+const links=["Home","The Estate","Stay","Host an Event","Gallery","Contact"];
+const slug=(s:string)=>s.toLowerCase().replaceAll(" ","-");
+export default function Home(){
+  const [concept,setConcept]=useState<Concept>("editorial"); const [menu,setMenu]=useState(false); const c=content[concept];
+  return <main className={`site concept-${concept}`}>
+    <div className="concept-bar" aria-label="Choose a layout direction"><div className="concept-intro"><span>CLIENT PREVIEW</span><b>Choose a direction</b></div><div className="concept-options">{concepts.map(x=><button key={x.id} className={concept===x.id?"active":""} onClick={()=>setConcept(x.id)}><span>{x.label}</span><small>{x.note}</small></button>)}</div></div>
+    <header><a className="wordmark" href="#home">WHITE OAK <small>HOLLYWOOD HILLS</small></a><nav>{links.slice(0,5).map(x=><a key={x} href={`#${slug(x)}`}>{x}</a>)}</nav><a className="inquire" href="#contact">Inquire <span>↗</span></a><button className="menu" onClick={()=>setMenu(!menu)} aria-label="Toggle menu">Menu</button></header>
+    {menu&&<div className="mobile-nav">{links.map(x=><a onClick={()=>setMenu(false)} key={x} href={`#${slug(x)}`}>{x}</a>)}</div>}
+    <section id="home" className="hero"><div className="hero-copy"><p className="eyebrow">{c.eyebrow}</p><h1>{c.title}</h1><p className="intro">{c.intro}</p><div className="actions"><a className="primary" href="#the-estate">{c.cta} <span>↗</span></a><a href="#gallery">{c.secondary} <span>→</span></a></div></div><div className="hero-image" style={{backgroundImage:`linear-gradient(180deg, transparent 65%, rgba(20,22,17,.38)), url("${c.hero}")`}}><span className="image-index">01 / 06</span><p>{c.stat}</p></div><div className="scroll-cue">SCROLL TO EXPLORE <i/></div></section>
+    <section className="promise"><p>Not simply a place to stay.</p><h2>A private world,<br/><em>above everything.</em></h2><div className="facts"><span><b>12</b> overnight guests</span><span><b>180°</b> canyon views</span><span><b>15 min</b> from the studios</span></div></section>
+    <section id="the-estate" className="estate"><div className="section-label"><span>01</span> THE ESTATE</div><div className="estate-grid"><div className="tall photo" style={{backgroundImage:"url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85')"}}/><div className="estate-copy"><h2>Designed for the<br/><em>way life unfolds.</em></h2><p>Five quiet bedrooms, sunlit gathering rooms, and a seamless path from kitchen to terrace to pool. Every space feels composed, never precious.</p><a href="#gallery">Explore every room <span>→</span></a></div><div className="wide photo" style={{backgroundImage:"url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85')"}}/></div></section>
+    <section id="stay" className="duo"><article><span>02 · STAY</span><h3>Wake up<br/>somewhere else.</h3><p>Trade the hotel corridor for a home with a horizon. Settle in for a weekend or stay long enough to know the light.</p><a href="#contact">Plan your stay →</a></article><article id="host-an-event"><span>03 · HOST</span><h3>Give the moment<br/>room to happen.</h3><p>Private dinners, intimate celebrations, and productions find their natural stage across the estate.</p><a href="#contact">Host at White Oak →</a></article></section>
+    <section id="gallery" className="gallery"><div className="section-label"><span>04</span> AROUND WHITE OAK</div><h2>Every angle<br/><em>tells the story.</em></h2><div className="gallery-grid">{["photo-1613490493576-7fde63acd811","photo-1600047509807-ba8f99d2cdde","photo-1600566753051-f0b89df2dd90","photo-1600585152915-d208bec867a1","photo-1600566752355-35792bedcfea"].map((id,i)=><div key={id} className={`g${i+1}`} style={{backgroundImage:`url('https://images.unsplash.com/${id}?auto=format&fit=crop&w=1000&q=82')`}}/>)}</div><a className="view-all" href="#contact">View the full gallery <span>→</span></a></section>
+    <section id="contact" className="closing"><p>YOUR TIME AT WHITE OAK</p><h2>Come up<br/><em>for the view.</em></h2><p className="close-copy">Tell us what you’re planning. We’ll help shape the details and make your arrival effortless.</p><a href="mailto:hello@whiteoakhollywood.com">Begin your inquiry ↗</a></section>
+    <footer><div className="wordmark">WHITE OAK <small>7845 TORRISON DRIVE</small></div><p>Hollywood Hills, California</p><a href="#home">Back to top ↑</a></footer>
+  </main>
+}
