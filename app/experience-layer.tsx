@@ -19,6 +19,14 @@ export function ExperienceLayer(){
     const update=()=>{
       const max=document.documentElement.scrollHeight-innerHeight;
       setProgress(max>0?scrollY/max:0);
+      root.querySelectorAll(".luminous-home>section").forEach(section=>{
+        const box=section.getBoundingClientRect();
+        const value=Math.max(0,Math.min(1,(innerHeight-box.top)/(innerHeight+box.height)));
+        (section as HTMLElement).style.setProperty("--chapter-progress",String(value));
+        (section as HTMLElement).style.setProperty("--camera-y",`${(0.5-value)*42}px`);
+        (section as HTMLElement).style.setProperty("--copy-y",`${(value-0.5)*15}px`);
+        (section as HTMLElement).style.setProperty("--camera-scale",String(1.025+value*0.025));
+      });
     };
     update();
     addEventListener("scroll",update,{passive:true});

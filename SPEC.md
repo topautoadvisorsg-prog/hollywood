@@ -505,3 +505,46 @@ The next implementation proceeds in this order:
 9. Publish only after client sign-off.
 
 No high-fidelity rebuild should begin by improvising sections that are already defined here.
+# White Oak Cinematic Property Documentary Direction
+
+White Oak is not presented as a conventional real-estate listing. The experience is a cinematic, interactive property documentary in which the visitor controls pacing through scrolling.
+
+## Narrative sequence
+
+1. Arrival — quiet opening and slow reveal.
+2. Landscape — establish scale, hills, trees and privacy.
+3. Architecture — move from exterior form toward the entrance.
+4. Living spaces — large editorial imagery with restrained copy.
+5. Kitchen — warmer, human-scale detail.
+6. Outdoor living — transition through the glass toward terraces.
+7. Pool — light, water and view become the visual focus.
+8. Sunset — slow the pacing and widen the frame.
+9. Night — lights, fire and city glow.
+10. Concierge invitation — a calm, qualified final action.
+
+## Motion rules
+
+- Camera movement is the storyteller: slow dolly, gentle zoom, layered reveal and deliberate framing.
+- Motion must guide attention or explain spatial continuity. Decorative movement without narrative purpose is removed.
+- Photography remains dominant; typography is secondary.
+- Section boundaries use overlap, dissolve, masking or depth rather than abrupt visual cuts.
+- Environmental motion is introduced only from authentic footage: trees, water, curtains, fire and reflections must not be fabricated as property evidence.
+- Desktop may receive richer choreography. Mobile uses shorter transitions and fewer simultaneous layers.
+- `prefers-reduced-motion` always produces an immediate, stable presentation.
+
+## Technical direction
+
+- Phase 1 uses native transforms, opacity, IntersectionObserver and requestAnimationFrame-style scroll measurements for lightweight cinematic movement.
+- GSAP ScrollTrigger is the preferred next step for two or three scrubbed signature sequences, pinned chapters and precise timeline control.
+- Lenis may be added only if testing proves it improves continuity without harming native navigation, accessibility or touch behavior.
+- Three.js / React Three Fiber are reserved for one defensible spatial moment, not the site shell.
+- Spline is limited to one lazy-loaded embed at most, following its own performance guidance.
+- Real drone and ambient footage replace the current photographic concept sequence without changing the information architecture.
+
+## Performance budget
+
+- No permanent full-page WebGL canvas.
+- No 3D on low-power mobile by default.
+- Motion assets load after the primary hero image.
+- Video requires poster imagery, muted autoplay behavior, pause controls and adaptive formats.
+- Every signature effect must be measured against load time, scroll responsiveness and readability.

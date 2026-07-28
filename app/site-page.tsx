@@ -1,6 +1,7 @@
 import {HeroFilm} from "./hero-film";
 import {ExperienceLayer} from "./experience-layer";
 import {PropertyGallery} from "./property-gallery";
+import {CinematicIntro} from "./cinematic-intro";
 
 const P=(n:number)=>`/property-hq/photo-${String(n).padStart(2,"0")}.jpg`;
 type Concept="editorial"|"cinematic"|"production";
@@ -22,7 +23,7 @@ function StoryNav({concept}:{concept:Concept}){return <nav className="story-nav"
 function PropertyCard({concept}:{concept:Concept}){return <aside className="property-card"><span>PRIVATE HILLSIDE ESTATE</span><b>White Oak House</b><small>Studio City · Los Angeles</small><dl><div><dt>5</dt><dd>BEDS</dd></div><div><dt>5.5</dt><dd>BATHS</dd></div><div><dt>3,100</dt><dd>APPROX. SQ FT</dd></div></dl><a href={`/${concept}/gallery`}>▶ WALK THROUGH THE HOME</a><a href={`/${concept}/contact`}>SCHEDULE A PRIVATE TOUR ↗</a></aside>}
 
 function Home({concept}:{concept:Concept}){
-  if(concept==="cinematic")return <div className="luminous-home">
+  if(concept==="cinematic")return <div className="luminous-home"><CinematicIntro/>
     <section className="lum-hero"><HeroFilm images={[P(2),P(3),P(12),P(1)]} label="Animated property film preview showing the view, pool, interior and blue hour"/><div><p>CONCEPT 02 · LUMINOUS CINEMA</p><h1>A city away<br/>from the city.</h1><span>At the top of the hill, Los Angeles opens in every direction.</span><a href="#lum-choose">BEGIN THE STORY ↓</a></div></section><StoryNav concept={concept}/>
     <section className="lum-arrival"><p>THE ARRIVAL · 5:42 PM</p><h2>It begins the moment<br/>you step out of the car.</h2><span>A private hillside setting above Universal and Studio City—close to everything, removed from all of it.</span></section>
     <section className="lum-choose" id="lum-choose"><p>CHOOSE YOUR STORY</p><div><a href="#lum-shoot"><span>01</span><h2>Shoot</h2><small>Film · photo · music</small></a><a href="#lum-gather"><span>02</span><h2>Gather</h2><small>Corporate · private · considered</small></a><a href="#lum-stay"><span>03</span><h2>Stay</h2><small>Five bedrooms · two residences</small></a></div></section>
