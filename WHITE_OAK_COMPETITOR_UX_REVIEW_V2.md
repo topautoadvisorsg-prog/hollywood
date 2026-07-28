@@ -854,3 +854,9 @@ Every proposed White Oak interaction must pass four questions:
 4. Is its operational promise supported by real content and client capability?
 
 If the answer to any question is no, the pattern should be removed or modified regardless of how frequently it appears on luxury competitor sites.
+
+---
+
+## 17. Application Plan
+
+The research is translated into a three-concept customer-review strategy in `WHITE_OAK_CONCEPT_APPLICATION_PLAN.md`. That plan assigns competitor patterns, property imagery, page sections, signature interactions, and presentation questions across Editorial Residence, Cinematic Escape, and Location Dossier directions.
