@@ -35,6 +35,9 @@ Status meanings:
 | Module | Status | Current use | Reuse rule |
 |---|---|---|---|
 | Four-act property documentary | Implemented | Luminous | Rewrite acts for each property |
+| Ten-shot emotional journey | Implemented | Arrive → Breathe → Enter → Gather → Taste → Connect → Unwind → Reflect → Rest → Stay | Preserve narrative purpose; rewrite the verbs for each property |
+| Sticky documentary chapter rail | Implemented | Luminous homepage | Provides optional direct navigation without replacing guided scrolling |
+| Signature-moment pacing | Implemented | Arrival, threshold, pool/sunset and night | Limit major moments so quieter sections can breathe |
 | Emotional chapter language | Implemented | Arrive / Breathe / Gather / Connect / Rest / Stay | Use verbs appropriate to the property |
 | Scroll-controlled camera drift | Implemented | Luminous chapters | Reduce on mobile and disable for reduced motion |
 | Opposing image/copy movement | Implemented | Luminous | Keep subtle; avoid readability loss |
