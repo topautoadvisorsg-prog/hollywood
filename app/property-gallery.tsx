@@ -1,0 +1,36 @@
+"use client";
+
+import {useEffect, useState} from "react";
+
+const P=(n:number)=>`/property-hq/photo-${String(n).padStart(2,"0")}.jpg`;
+
+export function PropertyGallery({concept,shots}:{concept:string;shots:number[]}){
+  const [active,setActive]=useState<number|null>(null);
+  useEffect(()=>{
+    if(active===null)return;
+    const key=(event:KeyboardEvent)=>{
+      if(event.key==="Escape")setActive(null);
+      if(event.key==="ArrowRight")setActive((active+1)%shots.length);
+      if(event.key==="ArrowLeft")setActive((active-1+shots.length)%shots.length);
+    };
+    addEventListener("keydown",key);
+    document.body.classList.add("gallery-open");
+    return ()=>{removeEventListener("keydown",key);document.body.classList.remove("gallery-open")};
+  },[active,shots.length]);
+  return <>
+    <div className={`gallery-grid ${concept}`}>{shots.map((n,i)=><figure key={n}>
+      <button type="button" onClick={()=>setActive(i)} aria-label={`Open property photograph ${i+1}`}>
+        <img src={P(n)} alt={`White Oak property photograph ${i+1}`} loading="lazy"/>
+        <span>VIEW IMAGE <b>↗</b></span>
+      </button>
+      <figcaption>{String(i+1).padStart(2,"0")} / WHITE OAK</figcaption>
+    </figure>)}</div>
+    {active!==null&&<div className="gallery-viewer" role="dialog" aria-modal="true" aria-label="Property image viewer" onClick={()=>setActive(null)}>
+      <button className="gallery-close" type="button" onClick={()=>setActive(null)} aria-label="Close image viewer">CLOSE ×</button>
+      <button className="gallery-prev" type="button" onClick={e=>{e.stopPropagation();setActive((active-1+shots.length)%shots.length)}} aria-label="Previous image">←</button>
+      <img src={P(shots[active])} alt={`White Oak property photograph ${active+1}`} onClick={e=>e.stopPropagation()}/>
+      <span>{String(active+1).padStart(2,"0")} / {shots.length}</span>
+      <button className="gallery-next" type="button" onClick={e=>{e.stopPropagation();setActive((active+1)%shots.length)}} aria-label="Next image">→</button>
+    </div>}
+  </>;
+}
